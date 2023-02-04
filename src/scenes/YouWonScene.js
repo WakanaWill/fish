@@ -1,5 +1,6 @@
 import Phaser from "phaser"
 import eventsCenter from "./EventsCenter";
+import GameScene from "./GameScene";
 
 export default class YouWonScene extends Phaser.Scene{
 
@@ -26,7 +27,7 @@ export default class YouWonScene extends Phaser.Scene{
         this.add.text( width/2, 200, credits,  { fontSize: '30px', fontFamily: "Comic Sans MS" })
 
         const buttonRestart = this.add.image( width/2, height/2, 'buttonRS');
-        const buttonMenu = this.add.image( width/2, height/2+110, 'buttonS');
+        const buttonMenu = this.add.image( width/2, height/2+110, 'buttonM');
 
         const buttons = [
             buttonRestart,
@@ -58,6 +59,7 @@ export default class YouWonScene extends Phaser.Scene{
         eventsCenter.emit('play-bubble');
         this.scene.stop('gameScene');
         this.scene.start('gameScene');
+        
 
       }
 

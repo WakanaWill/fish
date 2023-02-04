@@ -13,6 +13,7 @@ var image3;
 var hpile = 3;
 var koliz = true;
 var kon=true;
+var lose=false;
 /**
  * 
  * @param {number} count 
@@ -105,6 +106,9 @@ export default class GameScene extends Phaser.Scene{
             this.physics.add.overlap(this.player, this.finish, this.player.konie);
         this.physics.add.overlap(this.player, this.finish, this.koniec);
         }
+        if(lose==true){
+            this.eventYouLost();
+        }
     }
     onEvent() {
         timer = true
@@ -112,19 +116,21 @@ export default class GameScene extends Phaser.Scene{
         text.setText('time:' + time);
     }
     hp() {
-            setTimeout(() =>  timer = true, 500)
+        setTimeout(() =>  timer = true, 500)
         if(hpile==3){
             setTimeout(() => image3.destroy(), 500)
             setTimeout(() => image3 = null, 500)
         }else if(hpile==2){
-            setTimeout(() => image2.destroy(), 500)
-            setTimeout(() => image2 = null, 500)
+           setTimeout(() => image2.destroy(), 500)
+           setTimeout(() => image2 = null, 500)
         }else{
-            setTimeout(() => image.destroy(), 500)
-            setTimeout(() => image = null, 500)
+           setTimeout(() => image.destroy(), 500)
+          setTimeout(() => image = null, 500)
+          lose=true;
 
         }setTimeout(() => hpile-=1, 500)
     }
+
     koniec(){
         kon=false
     }
@@ -139,6 +145,7 @@ export default class GameScene extends Phaser.Scene{
         this.player.konie;
         this.scene.launch('youWonScene');
         //here emits
+        //give time
         this.scene.stop();
     }
 
