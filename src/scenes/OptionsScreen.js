@@ -15,6 +15,7 @@ export default class OptionsScene extends Phaser.Scene{
     }
 
     create() {
+        var volume = 1;
         const width = this.scale.width
         const height = this.scale.height
 
@@ -74,7 +75,7 @@ export default class OptionsScene extends Phaser.Scene{
             buttonPlus
         ];
 
-        var volume = 1;
+        
 
         buttons.forEach( thisbutton => thisbutton.setInteractive() );
         buttons.forEach( thisbutton => thisbutton.on('pointerover', () => this.eventButtonHoverState(thisbutton) ));

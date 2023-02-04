@@ -34,7 +34,6 @@ export default new Phaser.Game({
         MusicScene,
         YouLostScene,
         YouWonScene
-        
     ]
 
 });

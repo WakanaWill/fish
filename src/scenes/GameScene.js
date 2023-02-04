@@ -90,13 +90,13 @@ export default class GameScene extends Phaser.Scene{
         this.wall.setPosition(1400, 100);
   
         // @ts-ignore
-        text = this.add.text(width / 15, height / 15, 'time: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
+        text = this.add.text(40, 90, 'time: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
         // @ts-ignore
-        txtdistance = this.add.text(width / 15, height / 15-60, 'distance: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
+        txtdistance = this.add.text(40, 30, 'distance: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
 
-        image = this.add.image(0, 0, 'serce').setOrigin(0, 0).setScrollFactor(0);
-        image2 = this.add.image(25, 0, 'serce').setOrigin(0, 0).setScrollFactor(0);
-        image3 = this.add.image(50, 0, 'serce').setOrigin(0, 0).setScrollFactor(0);
+        image = this.add.image(40, height - 100, 'serce').setOrigin(0, 0).setScrollFactor(0);
+        image2 = this.add.image(75+60, height - 100, 'serce').setOrigin(0, 0).setScrollFactor(0);
+        image3 = this.add.image(150+80, height - 100, 'serce').setOrigin(0, 0).setScrollFactor(0);
 
         this.input.keyboard.on('keydown-L', () => this.eventYouLost() );
     }
@@ -131,6 +131,7 @@ export default class GameScene extends Phaser.Scene{
         text.setText('time: ' + time);
     }
     hp() {
+        eventsCenter.emit('play-Hurt');
         colision=true;
         if(hpile==3){
             image3.destroy()

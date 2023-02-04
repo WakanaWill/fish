@@ -29,7 +29,7 @@ export default class LoadScene extends Phaser.Scene{
         this.load.image('sD4', '/images/stalD4.png');
         this.load.image('sD5', '/images/stalD5.png');
 
-        this.load.image('serce', '/images/ser.png');
+        this.load.image('serce', '/images/heart.png');
         this.load.image('meta', '/images/tort.png');
 
         this.load.image('buttonB', '/images/buttonBack.png');
@@ -46,11 +46,12 @@ export default class LoadScene extends Phaser.Scene{
 
         this.load.audio('menuMusic', '/sound/watr-fluid-quiet.mp3');
         this.load.audio('bubble', '/sound/bubbleSound.mp3')
+        this.load.audio('hurt', '/sound/hit.mp3')
 
         this.load.spritesheet('volume', 'images/volumeLevels.png', { frameWidth: 206, frameHeight: 164});
         this.load.image('plus', '/images/buttonPlus.png');
         this.load.image('minus', '/images/buttonMinus.png')
-
+ 
 
 
     }
