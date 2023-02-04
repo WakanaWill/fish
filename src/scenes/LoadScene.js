@@ -42,7 +42,7 @@ export default class LoadScene extends Phaser.Scene{
         
         
 
-        this.load.image('play', '/images/play.png')
+        this.load.image('play', '/images/buttonPlay.png')
 
         this.load.audio('menuMusic', '/sound/watr-fluid-quiet.mp3');
         this.load.audio('bubble', '/sound/bubbleSound.mp3')

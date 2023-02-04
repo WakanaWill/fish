@@ -17,6 +17,7 @@ var lose=false;
 var distance=0;
 var txtdistance;
 var width;
+var colision;
 /**
  * 
  * @param {number} count 
@@ -59,6 +60,7 @@ export default class GameScene extends Phaser.Scene{
         koliz = true;
         kon=true;
         lose=false;
+        colision=false;
 
         this.input.keyboard.on('keydown-P', () => this.eventPause() );
 
@@ -112,41 +114,43 @@ export default class GameScene extends Phaser.Scene{
         if(kon==false){
             this.eventYouWon();
         }
+            if(lose==true){
+                this.eventYouLost();
+        }
         if (timer == true) {
             timer = false
             this.time.delayedCall(1000, this.onEvent, null, this);
         }
-        if(kon=true){
+        if(colision=false){
             this.physics.add.overlap(this.player, this.finish, this.player.konie);
         this.physics.add.overlap(this.player, this.finish, this.koniec);
         }
-        if(lose==true){
-            this.eventYouLost();
-        }
-
-        distance=Math.round((this.player.x-(width / 2))/(width/15))
+        const width = this.scale.width
+        distance=Math.round((this.player.x-(width / 2))/(width/11))
         txtdistance.setText('distance:' + distance);
-
     }
+
     onEvent() {
         timer = true
         time += 1
         text.setText('time:' + time);
     }
-    hp() {
-        setTimeout(() =>  timer = true, 500)
-        if(hpile==3){
-            setTimeout(() => image3.destroy(), 500)
-            setTimeout(() => image3 = null, 500)
-        }else if(hpile==2){
-           setTimeout(() => image2.destroy(), 500)
-           setTimeout(() => image2 = null, 500)
-        }else{
-           setTimeout(() => image.destroy(), 500)
-          setTimeout(() => image = null, 500)
-          lose=true;
 
-        }setTimeout(() => hpile-=1, 500)
+    hp() {
+        colision=true;
+        if(hpile==3){
+            image3.destroy()
+            image3 = null
+        }else if(hpile==2){
+            image2.destroy()
+         image2 = null
+        }else{
+            image.destroy()
+            image = null
+            lose=true;
+        }
+        hpile-=1
+        setTimeout(() =>  colision = false, 500)
     }
 
     koniec(){
