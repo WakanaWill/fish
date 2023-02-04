@@ -1,7 +1,6 @@
 import Phaser from "phaser"
 import eventsCenter from "./EventsCenter";
 import gracz from '../objects/Player.js'
-import wall from '../objects/Obstacle.js'
 import meta from'../objects/Meta.js'
 
 var timer = true;
@@ -69,7 +68,68 @@ export default class GameScene extends Phaser.Scene{
         createbg(4,this, 'bg3', 0.5)
         createbg(8,this, 'bg4', 1)
         createbg(8,this, 'bg5', 1)
-        
+        this.platforms = this.physics.add.staticGroup();
+        var multi=1;
+        var value
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
+        multi+=0.5;
+        value = Phaser.Math.Between(0, 5);
+        this.platforms.create(width*multi, 0, 'sG'+value);
+        this.platforms.create(width*multi, height, 'sD'+value);
         // Utworzenie gracza.
         this.player = new gracz(this);
         this.player.setOrigin(0.65, 0.5);
@@ -85,9 +145,7 @@ export default class GameScene extends Phaser.Scene{
         this.cameras.main.followOffset.set(-width/3, 0);
 
         this.finish = new meta(this);
-        this.finish.setPosition(2000, 500);
-        this.wall = new wall(this);
-        this.wall.setPosition(1400, 100);
+        this.finish.setPosition(-2000, 500);
   
         // @ts-ignore
         text = this.add.text(40, 90, 'time: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
@@ -105,8 +163,8 @@ export default class GameScene extends Phaser.Scene{
         if (this.player.active) this.player.update(this.cursors);
         if (koliz == true) {
             koliz = false
-            this.physics.add.overlap(this.player, this.wall, this.player.hit);
-            this.physics.add.overlap(this.player, this.wall, this.hp);
+            this.physics.add.overlap(this.player, this.platforms, this.player.hit);
+            this.physics.add.overlap(this.player, this.platforms, this.hp);
         }
         if(win==true){
             this.eventYouWon();
