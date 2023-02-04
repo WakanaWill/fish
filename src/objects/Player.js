@@ -71,11 +71,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
       
       return; 
     }
-    konie(){
-        speedx=100;
-        zyc=true;
-       return; 
-   }
 
     
 }

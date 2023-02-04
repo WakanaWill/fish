@@ -12,12 +12,11 @@ var image2;
 var image3;
 var hpile = 3;
 var koliz = true;
-var kon=true;
+var win=false;
+var colision;
 var lose=false;
 var distance=0;
 var txtdistance;
-var width;
-var colision;
 /**
  * 
  * @param {number} count 
@@ -52,26 +51,24 @@ export default class GameScene extends Phaser.Scene{
     }
 
     create(){
-
-        distance=0;
-        timer = true;
-        time = 0.0;
-        hpile = 3;
-        koliz = true;
-        kon=true;
-        lose=false;
-        colision=false;
-
+         distance=0;
+         timer = true;
+         colision=false;
+         time = 0;
+         hpile = 3;
+         koliz = true;
+         win=false;
+         lose=false;
         this.input.keyboard.on('keydown-P', () => this.eventPause() );
 
-        width = this.scale.width
+        const width = this.scale.width
         const height = this.scale.height
         this.add.image(0, 0, 'bg').setOrigin(0, 0).setScrollFactor(0);
         createbg(2,this, 'bg1', 0.25)
-        createbg(2,this, 'bg2', 0.5)
-        createbg(2,this, 'bg3', 0.5)
-        createbg(2,this, 'bg4', 1)
-        createbg(2,this, 'bg5', 1)
+        createbg(4,this, 'bg2', 0.5)
+        createbg(4,this, 'bg3', 0.5)
+        createbg(8,this, 'bg4', 1)
+        createbg(8,this, 'bg5', 1)
         
         // Utworzenie gracza.
         this.player = new gracz(this);
@@ -81,7 +78,7 @@ export default class GameScene extends Phaser.Scene{
 
         this.player.setCollideWorldBounds(true);
         // @ts-ignore
-        this.player.body.setBoundsRectangle(new Phaser.Geom.Rectangle(0, 0, 2 * width, height));
+        this.player.body.setBoundsRectangle(new Phaser.Geom.Rectangle(0, 0, 8 * width, height));
         // Uruchomienie śledzenia.
         this.cameras.main.setBounds(0, 0, 40800, 0);
         this.cameras.main.startFollow(this.player);
@@ -96,7 +93,7 @@ export default class GameScene extends Phaser.Scene{
         text = this.add.text(width / 15, height / 15, 'time:0', { fontFamily: 'Arial', fontSize: 40, color: '#00ff00' }).setScrollFactor(0);
         // @ts-ignore
         txtdistance = this.add.text(width / 15, height / 15-60, 'distance:0', { fontFamily: 'Arial', fontSize: 40, color: '#00ff00' }).setScrollFactor(0);
-        
+
         image = this.add.image(0, 0, 'serce').setOrigin(0, 0).setScrollFactor(0);
         image2 = this.add.image(25, 0, 'serce').setOrigin(0, 0).setScrollFactor(0);
         image3 = this.add.image(50, 0, 'serce').setOrigin(0, 0).setScrollFactor(0);
@@ -111,7 +108,7 @@ export default class GameScene extends Phaser.Scene{
             this.physics.add.overlap(this.player, this.wall, this.player.hit);
             this.physics.add.overlap(this.player, this.wall, this.hp);
         }
-        if(kon==false){
+        if(win==true){
             this.eventYouWon();
         }
             if(lose==true){
@@ -121,21 +118,18 @@ export default class GameScene extends Phaser.Scene{
             timer = false
             this.time.delayedCall(1000, this.onEvent, null, this);
         }
-        if(colision=false){
-            this.physics.add.overlap(this.player, this.finish, this.player.konie);
+        if(win==false){
         this.physics.add.overlap(this.player, this.finish, this.koniec);
         }
         const width = this.scale.width
         distance=Math.round((this.player.x-(width / 2))/(width/11))
         txtdistance.setText('distance:' + distance);
     }
-
     onEvent() {
         timer = true
         time += 1
         text.setText('time:' + time);
     }
-
     hp() {
         colision=true;
         if(hpile==3){
@@ -152,9 +146,8 @@ export default class GameScene extends Phaser.Scene{
         hpile-=1
         setTimeout(() =>  colision = false, 500)
     }
-
     koniec(){
-        kon=false
+        win=true
     }
 
     eventPause(){
@@ -164,7 +157,6 @@ export default class GameScene extends Phaser.Scene{
     }
 
     eventYouWon(){
-        this.player.konie;
         this.scene.launch('youWonScene');
         eventsCenter.emit('emit-time', time);
         //eventsCenter.emit('emit-distance', distance);
@@ -172,7 +164,6 @@ export default class GameScene extends Phaser.Scene{
     }
 
     eventYouLost(){
-        this.player.konie;
         this.scene.launch('youLostScene');
         eventsCenter.emit('emit-time', time);
         //eventsCenter.emit('emit-distance', distance);

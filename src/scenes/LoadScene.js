@@ -47,9 +47,9 @@ export default class LoadScene extends Phaser.Scene{
         this.load.audio('menuMusic', '/sound/watr-fluid-quiet.mp3');
         this.load.audio('bubble', '/sound/bubbleSound.mp3')
 
-        this.load.spritesheet('volume', 'images/volume.png', { frameWidth: 105, frameHeight: 83 });
-        this.load.image('plus', '/images/plus.png');
-        this.load.image('minus', '/images/minus.png')
+        this.load.spritesheet('volume', 'images/volumeLevels.png', { frameWidth: 206, frameHeight: 164});
+        this.load.image('plus', '/images/buttonPlus.png');
+        this.load.image('minus', '/images/buttonMinus.png')
 
 
 
