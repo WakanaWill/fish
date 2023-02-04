@@ -16,18 +16,19 @@ export default class LoadScene extends Phaser.Scene{
         this.load.image('bg4', '/images/bg4.png');
         this.load.image('bg5', '/images/bg5.png');
         this.load.image('fish', '/images/fish.png');
-        this.load.image('sG0', '/images/stal0.png');
-        this.load.image('sG1', '/images/stal1.png');
-        this.load.image('sG2', '/images/stal2.png');
-        this.load.image('sG3', '/images/stal3.png');
-        this.load.image('sG4', '/images/stal4.png');
-        this.load.image('sG5', '/images/stal5.png');
-        this.load.image('sD0', '/images/stal6.png');
-        this.load.image('sD1', '/images/stal7.png');
-        this.load.image('sD2', '/images/stal8.png');
-        this.load.image('sD3', '/images/stal9.png');
-        this.load.image('sD4', '/images/stal10.png');
-        this.load.image('sD5', '/images/stal11.png');
+        this.load.image('sG0', '/images/stal7.png');
+        this.load.image('sG1', '/images/stal8.png');
+        this.load.image('sG2', '/images/stal9.png');
+        this.load.image('sG3', '/images/stal10.png');
+        this.load.image('sG4', '/images/stal11.png');
+        this.load.image('sG5', '/images/stal0.png');
+        this.load.image('sD0', '/images/stal2.png');
+        this.load.image('sD1', '/images/stal4.png');
+        this.load.image('sD2', '/images/stal6.png');
+        this.load.image('sD3', '/images/stal3.png');
+        this.load.image('sD4', '/images/stal5.png');
+        this.load.image('sD5', '/images/stal1.png');
+
 
         this.load.image('serce', '/images/heart.png');
         this.load.image('meta', '/images/tort.png');

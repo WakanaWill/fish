@@ -169,8 +169,8 @@ export default class GameScene extends Phaser.Scene{
         if(win==true){
             this.eventYouWon();
         }
-            if(lose==true){
-                this.eventYouLost();
+        if(lose==true){
+            this.eventYouLost();
         }
         if (timer == true) {
             timer = false

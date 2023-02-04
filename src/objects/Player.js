@@ -43,11 +43,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
             
         }
         if (cursors.left.isDown && speedx>=100){
-            speedx=speedx-1;
+            speedx -= 10;
             this.body.velocity.x = speedx;
             
         } 
-        else if (cursors.right.isDown && speedx<=500) {
+        else if (cursors.right.isDown && speedx<=1000) {
             this.body.velocity.x = speedx;
             speedx=speedx+2;
         } 

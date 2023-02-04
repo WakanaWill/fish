@@ -1,6 +1,9 @@
 import Phaser from "phaser"
 import eventsCenter from "./EventsCenter";
 
+var yourTime;
+var yourDistance;
+
 export default class YouLostScene extends Phaser.Scene{
 
     constructor(){
@@ -23,7 +26,7 @@ export default class YouLostScene extends Phaser.Scene{
       this.add.image(0, 0, 'bg3').setOrigin(0,0);
 
 
-      var credits = 'YOU WON'
+      var credits = 'YOU lost'
 
       this.add.text( width/2, 200, credits,  { fontSize: '30px', fontFamily: "Comic Sans MS" })
 
@@ -44,15 +47,15 @@ export default class YouLostScene extends Phaser.Scene{
       buttonMenu.on('pointerup', () => this.backToMenu() );
       
       // @ts-ignore
-      eventsCenter.on('emit-time', time => yourTime = time, this)
+      eventsCenter.once('emit-time', time => this.test(time), this);
 
       this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
           // @ts-ignore
-          eventsCenter.off('emit-time', time => yourTime = time, this);
+          eventsCenter.off('emit-time', time => this.test(time), this);
       })
 
       // @ts-ignore
-      eventsCenter.on('emit-distance', distance => yourDistance = distance, this)
+      eventsCenter.once('emit-distance', distance => this.test(distance), this)
 
       this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
           // @ts-ignore
@@ -76,6 +79,12 @@ export default class YouLostScene extends Phaser.Scene{
       this.scene.stop('gameScene');
       this.scene.start('gameScene');
       
+
+    }
+
+    test(time){
+      yourTime = time;
+      console.log(yourTime);
 
     }
 

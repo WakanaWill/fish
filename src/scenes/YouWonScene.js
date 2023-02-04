@@ -45,11 +45,11 @@ export default class YouWonScene extends Phaser.Scene{
         buttonMenu.on('pointerup', () => this.backToMenu() );
         
         // @ts-ignore
-        eventsCenter.on('emit-time', time => yourTime = time, this)
+        eventsCenter.on('emit-time', time => this.test(time), this);
 
         this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
             // @ts-ignore
-            eventsCenter.off('emit-time', time => yourTime = time, this);
+            eventsCenter.off('emit-time', time => this.test(time), this);
         })
 
         // @ts-ignore
@@ -78,6 +78,10 @@ export default class YouWonScene extends Phaser.Scene{
         this.scene.start('gameScene');
         
 
+      }
+
+      test(time){
+        console.log(time);
       }
 
       backToMenu(){
