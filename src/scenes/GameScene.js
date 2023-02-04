@@ -90,9 +90,9 @@ export default class GameScene extends Phaser.Scene{
         this.wall.setPosition(1400, 100);
   
         // @ts-ignore
-        text = this.add.text(width / 15, height / 15, 'time:0', { fontFamily: 'Arial', fontSize: 40, color: '#00ff00' }).setScrollFactor(0);
+        text = this.add.text(width / 15, height / 15, 'time: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
         // @ts-ignore
-        txtdistance = this.add.text(width / 15, height / 15-60, 'distance:0', { fontFamily: 'Arial', fontSize: 40, color: '#00ff00' }).setScrollFactor(0);
+        txtdistance = this.add.text(width / 15, height / 15-60, 'distance: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
 
         image = this.add.image(0, 0, 'serce').setOrigin(0, 0).setScrollFactor(0);
         image2 = this.add.image(25, 0, 'serce').setOrigin(0, 0).setScrollFactor(0);
@@ -123,12 +123,12 @@ export default class GameScene extends Phaser.Scene{
         }
         const width = this.scale.width
         distance=Math.round((this.player.x-(width / 2))/(width/11))
-        txtdistance.setText('distance:' + distance);
+        txtdistance.setText('distance: ' + distance);
     }
     onEvent() {
         timer = true
         time += 1
-        text.setText('time:' + time);
+        text.setText('time: ' + time);
     }
     hp() {
         colision=true;
