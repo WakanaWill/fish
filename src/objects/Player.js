@@ -2,7 +2,6 @@ import Phaser from 'phaser'
 import AssetsKeys from '../helpers/AssetsKeys'
 import GameScene from '../scenes/GameScene';
 var speedx=100;
-var life = 3;
 var zyc=true;
 export default class Player extends Phaser.Physics.Arcade.Sprite
 {
@@ -20,7 +19,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
         scene.physics.add.existing(this);
         scene.add.existing(this);
 
-        
+        speedx = 100;
         this.speedy = 300;
         
         this.walkingAnim = scene.tweens.add({
@@ -43,10 +42,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
             setTimeout(() => speedx=100, 600)
             
         }
-        if (life <= 0) {
-            this.destroy();
-            return;
-        }
         if (cursors.left.isDown && speedx>=100){
             speedx=speedx-1;
             this.body.velocity.x = speedx;
@@ -67,9 +62,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
         }
         
     } 
-    hit(){if(zyc==true){
-        speedx= -500;
-      life=life-1;}
+    hit(){
+        if(zyc==true){
+            speedx= -500;
+        }
         zyc=false;
         setTimeout(() => zyc=true, 500)
       
@@ -77,7 +73,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
     }
     konie(){
         speedx=100;
-        life = 3;
         zyc=true;
        return; 
    }

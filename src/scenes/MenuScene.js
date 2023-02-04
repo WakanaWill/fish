@@ -27,8 +27,8 @@ export default class MenuScene extends Phaser.Scene{
 
 
         const buttonStart = this.add.image( width/2, height/2, 'buttonS');
-        const buttonOptions = this.add.image( width/2, height/2+110, 'buttonO');
-        const buttonCredits = this.add.image( width/2, height/2+220, 'buttonC');
+        const buttonOptions = this.add.image( width/2, height/2+190, 'buttonO');
+        const buttonCredits = this.add.image( width/2, height/2+190*2, 'buttonC');
         
 
         const buttons = [

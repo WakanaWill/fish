@@ -28,7 +28,7 @@ export default class CreditsScene extends Phaser.Scene{
 
         this.add.text( width/8, height/7, credits,  { fontSize: '50px', fontFamily: "Comic Sans MS" })
 
-        const buttonBack = this.add.image(  width/15, height/1.07, 'buttonB').setName('buttonBack');
+        const buttonBack = this.add.image(  width/9.8, height/1.1, 'buttonB').setName('buttonBack');
         
         buttonBack.setInteractive();
         buttonBack.on('pointerover', () => buttonBack.setTint(0x89dddb) );

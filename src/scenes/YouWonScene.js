@@ -17,6 +17,8 @@ export default class YouWonScene extends Phaser.Scene{
     create() {
         const width=this.scale.width
         const height=this.scale.height
+        var yourTime = 0;
+        var yourDistance = 0;
 
         this.add.image(0, 0, 'bg2').setOrigin(0,0);
         this.add.image(0, 0, 'bg3').setOrigin(0,0);
@@ -27,7 +29,7 @@ export default class YouWonScene extends Phaser.Scene{
         this.add.text( width/2, 200, credits,  { fontSize: '30px', fontFamily: "Comic Sans MS" })
 
         const buttonRestart = this.add.image( width/2, height/2, 'buttonRS');
-        const buttonMenu = this.add.image( width/2, height/2+110, 'buttonM');
+        const buttonMenu = this.add.image( width/2, height/2+190, 'buttonM');
 
         const buttons = [
             buttonRestart,
@@ -42,6 +44,21 @@ export default class YouWonScene extends Phaser.Scene{
         buttonRestart.on('pointerup', () => this.backToGame() );
         buttonMenu.on('pointerup', () => this.backToMenu() );
         
+        // @ts-ignore
+        eventsCenter.on('emit-time', time => yourTime = time, this)
+
+        this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
+            // @ts-ignore
+            eventsCenter.off('emit-time', time => yourTime = time, this);
+        })
+
+        // @ts-ignore
+        eventsCenter.on('emit-distance', distance => yourDistance = distance, this)
+
+        this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
+            // @ts-ignore
+            eventsCenter.off('emit-distance', distance => yourDistance = distance, this);
+        })
 
 
       

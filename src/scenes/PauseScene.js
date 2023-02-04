@@ -23,9 +23,9 @@ export default class PauseScene extends Phaser.Scene{
 
         this.input.keyboard.on('keydown-P', () => this.backToGame() )
 
-        const buttonBack = this.add.image( width/2, height/2+110-110, 'buttonB');
-        const buttonMenu = this.add.image( width/2, height/2+110, 'buttonM');
-        const buttonOptions = this.add.image( width/2, height/2+110+110, 'buttonO');
+        const buttonBack = this.add.image( width/2, height/2, 'buttonB');
+        const buttonMenu = this.add.image( width/2, height/2+190, 'buttonM');
+        const buttonOptions = this.add.image( width/2, height/2+190+190, 'buttonO');
 
         const buttons = [
             buttonBack,
