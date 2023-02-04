@@ -25,7 +25,7 @@ export default class YouWonScene extends Phaser.Scene{
 
         this.add.text( width/2, 200, credits,  { fontSize: '30px', fontFamily: "Comic Sans MS" })
 
-        const buttonRestart = this.add.image( width/2, height/2, 'buttonO');
+        const buttonRestart = this.add.image( width/2, height/2, 'buttonRS');
         const buttonMenu = this.add.image( width/2, height/2+110, 'buttonS');
 
         const buttons = [

@@ -32,10 +32,16 @@ export default class LoadScene extends Phaser.Scene{
         this.load.image('serce', '/images/ser.png');
         this.load.image('meta', '/images/tort.png');
 
-        this.load.image('buttonS', '/images/buttonStart.png');
-        this.load.image('buttonC', '/images/buttonCredits.png');
         this.load.image('buttonB', '/images/buttonBack.png');
+        this.load.image('buttonC', '/images/buttonCredits.png');
+        this.load.image('buttonM', '/images/buttonMenu.png');
         this.load.image('buttonO', '/images/buttonOptions.png');
+        this.load.image('buttonRS', '/images/buttonRestart.png');
+        this.load.image('buttonRe', '/images/buttonReturn.png');
+        this.load.image('buttonS', '/images/buttonStart.png');
+        
+        
+
         this.load.image('play', '/images/play.png')
 
         this.load.audio('menuMusic', '/sound/watr-fluid-quiet.mp3');

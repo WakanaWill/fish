@@ -9,21 +9,6 @@ export default class MenuScene extends Phaser.Scene{
     
 
     preload(){
-        /*
-        this.load.image('bg', '/images/bg.png');
-        this.load.image('bg1', '/images/bg1.png');
-        this.load.image('bg2', '/images/bg2.png');
-        this.load.image('bg3', '/images/bg3.png');
-        this.load.image('bg4', '/images/bg4.png');
-        this.load.image('bg5', '/images/bg5.png');
-
-        this.load.image('buttonS', '/images/buttonStart.png');
-        this.load.image('buttonC', '/images/buttonCredits.png');
-        this.load.image('buttonB', '/images/buttonBack.png');
-
-        this.load.audio('menuMusic', '/images/Drowning.mp3');
-        */
-        
         
     }
 
