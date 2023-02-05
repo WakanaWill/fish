@@ -18,11 +18,7 @@ export default class YouWonScene extends Phaser.Scene{
         const width=this.scale.width
         const height=this.scale.height
         var yourTime = 0;
-        var yourDistance = 0;
-
-        this.add.image(0, 0, 'bg2').setOrigin(0,0);
-        this.add.image(0, 0, 'bg3').setOrigin(0,0);
-
+        var yourDistance = 0; 
 
         var credits = 'YOU WON'
 

@@ -19,10 +19,23 @@ export default class CreditsScene extends Phaser.Scene{
 
         this.add.image(0, 0, 'bg').setOrigin(0,0);
         this.add.image(0, 0, 'bg1').setOrigin(0,0);
+        this.add.image(width, 0, 'end1').setOrigin(1,0);
         this.add.image(0, 0, 'bg2').setOrigin(0,0);
         this.add.image(0, 0, 'bg3').setOrigin(0,0);
+        this.add.image(width, 0, 'end2').setOrigin(1,0);
         this.add.image(0, 0, 'bg4').setOrigin(0,0);
         this.add.image(0, 0, 'bg5').setOrigin(0,0);
+        this.add.image(width, 0, 'end3').setOrigin(1,0);
+        this.add.image(width, 0, 'end4').setOrigin(1,0);
+        this.add.image(width, 0, 'end5').setOrigin(1,0);
+        this.add.image(width, 0, 'end6').setOrigin(1,0); 
+        this.add.image(width, 0, 'end7').setOrigin(1,0);
+        this.add.image(width, 0, 'end8').setOrigin(1,0);
+
+        
+        
+        
+        
 
         var credits = 'code: Łukasz Para,\n         Bartosz Piwowarczyk,\n         Magdalena Sładczyk\n\nart:   Magdalena Sładczyk\n\nbg music by ItsWatR from Pixabay\nbubble sound by Ranner from Pixabay'
 

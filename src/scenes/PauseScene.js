@@ -14,13 +14,11 @@ export default class PauseScene extends Phaser.Scene{
     }
 
     create() {
-        const width=this.scale.width
+        const width=this.scale.width 
         const height=this.scale.height
-
-
-        this.add.image(0, 0, 'bg2').setOrigin(0,0);;
-        this.add.image(0, 0, 'bg3').setOrigin(0,0);;
-
+        
+        this.add.image(0,0, 'bgTint').setOrigin(0,0);
+ 
         this.input.keyboard.on('keydown-P', () => this.backToGame() )
 
         const buttonBack = this.add.image( width/2, height/2, 'buttonB');

@@ -66,8 +66,8 @@ export default class GameScene extends Phaser.Scene{
         createbg(2,this, 'bg1', 0.25)
         createbg(4,this, 'bg2', 0.5)
         createbg(4,this, 'bg3', 0.5)
-        createbg(8,this, 'bg4', 1)
-        createbg(8,this, 'bg5', 1)
+        createbg(8,this, 'bg4', 0.9)
+        createbg(8,this, 'bg5', 0.9)
         this.platforms = this.physics.add.staticGroup();
         var multi=1;
         var value

@@ -24,6 +24,11 @@ export default class OptionsScene extends Phaser.Scene{
         this.add.image(0, 0, 'bg2').setOrigin(0,0);
         this.add.image(0, 0, 'bg3').setOrigin(0,0);
 
+
+
+
+
+
         const buttonBack = this.add.image( width/9.8, height/1.1, 'buttonB');
         const buttonPlus = this.add.image( width/1.6, height/2, 'plus');
         const buttonMinus = this.add.image( width/2.6, height/2, 'minus');

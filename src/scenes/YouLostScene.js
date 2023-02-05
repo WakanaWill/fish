@@ -22,11 +22,8 @@ export default class YouLostScene extends Phaser.Scene{
       var yourTime = 0;
       var yourDistance = 0;
 
-      this.add.image(0, 0, 'bg2').setOrigin(0,0);
-      this.add.image(0, 0, 'bg3').setOrigin(0,0);
 
-
-      var credits = 'YOU lost'
+      var credits = 'YOU LOST'
 
       this.add.text( width/2, 200, credits,  { fontSize: '30px', fontFamily: "Comic Sans MS" })
 

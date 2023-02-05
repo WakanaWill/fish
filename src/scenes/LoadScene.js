@@ -9,6 +9,7 @@ export default class LoadScene extends Phaser.Scene{
 
 
     preload(){
+        this.load.image('bgTint', '/images/bgTint.png');
         this.load.image('bg', '/images/bg.png');
         this.load.image('bg1', '/images/bg1.png');
         this.load.image('bg2', '/images/bg2.png');
@@ -28,6 +29,17 @@ export default class LoadScene extends Phaser.Scene{
         this.load.image('sD3', '/images/stal3.png');
         this.load.image('sD4', '/images/stal5.png');
         this.load.image('sD5', '/images/stal1.png');
+
+
+        this.load.image('end1', '/images/end1.png');
+        this.load.image('end2', '/images/end2.png');
+        this.load.image('end3', '/images/end2a.png');
+        this.load.image('end4', '/images/end2af.png');
+        this.load.image('end5', '/images/end2b.png');
+        this.load.image('end6', '/images/end2bf.png');
+        this.load.image('end7', '/images/end2c.png');
+        this.load.image('end8', '/images/end3.png');
+
 
 
         this.load.image('serce', '/images/heart.png');
