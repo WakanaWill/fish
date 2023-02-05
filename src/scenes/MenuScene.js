@@ -25,7 +25,6 @@ export default class MenuScene extends Phaser.Scene{
 
         var bubbleSound = this.sound.add('bubble');
 
-
         const buttonStart = this.add.image( width/2, height/2, 'buttonS');
         const buttonOptions = this.add.image( width/2, height/2+190, 'buttonO');
         const buttonCredits = this.add.image( width/2, height/2+190*2, 'buttonC');
@@ -40,8 +39,6 @@ export default class MenuScene extends Phaser.Scene{
         fishL.angle = 15;
         fishR.angle = -15;
         fishL.flipX = true;
-
-        
 
         const buttons = [
             buttonStart,

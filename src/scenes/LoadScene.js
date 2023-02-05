@@ -79,7 +79,6 @@ export default class LoadScene extends Phaser.Scene{
     create(){
         const width=this.scale.width
         const height=this.scale.height
-        //this.add.image(0,0,'bg1').setOrigin(0,0);
         const start = this.add.image( width/2, height/2, 'play');
         
 

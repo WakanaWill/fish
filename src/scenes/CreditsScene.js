@@ -32,11 +32,6 @@ export default class CreditsScene extends Phaser.Scene{
         this.add.image(width, 0, 'end7').setOrigin(1,0);
         this.add.image(width, 0, 'end8').setOrigin(1,0);
 
-        
-        
-        
-        
-
         var credits = 'code: Łukasz Para,\n         Magdalena Sładczyk,\n         Bartosz Piwowarczyk\n\nart:   Magdalena Sładczyk\n\nbg music by ItsWatR from Pixabay\nbubble sound by Ranner from Pixabay\nhit sound by worthahep88 from freesound'
 
         this.add.text( width/8, height/7, credits,  { fontSize: '50px', fontFamily: "Comic Sans MS" }).setShadow(2,2,'#72b7b7');
@@ -47,8 +42,6 @@ export default class CreditsScene extends Phaser.Scene{
         buttonBack.on('pointerover', () => buttonBack.setTint(0x89dddb) );
         buttonBack.on('pointerout', () => buttonBack.clearTint() );
         buttonBack.on('pointerup', () => this.backToMenu() );
-
-
       
       }
 
@@ -57,10 +50,6 @@ export default class CreditsScene extends Phaser.Scene{
         this.scene.wake('menuScene');
         this.scene.stop();
       }
-
-
-
-
 
 }
 
