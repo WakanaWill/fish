@@ -16,6 +16,11 @@ export default class LoadScene extends Phaser.Scene{
         this.load.image('bg3', '/images/bg3.png');
         this.load.image('bg4', '/images/bg4.png');
         this.load.image('bg5', '/images/bg5.png');
+        this.load.image('bg1a', '/images/bg1a.png');
+        this.load.image('bg2a', '/images/bg2a.png');
+        this.load.image('bg3a', '/images/bg3a.png');
+        this.load.image('bg4a', '/images/bg4a.png');
+        this.load.image('bg5a', '/images/bg5a.png');
         this.load.image('fish', '/images/fish.png');
         this.load.image('sG0', '/images/stal7.png');
         this.load.image('sG1', '/images/stal8.png');
@@ -31,6 +36,7 @@ export default class LoadScene extends Phaser.Scene{
         this.load.image('sD5', '/images/stal1.png');
 
 
+        this.load.image('end', '/images/end.png');  
         this.load.image('end1', '/images/end1.png');
         this.load.image('end2', '/images/end2.png');
         this.load.image('end3', '/images/end2a.png');

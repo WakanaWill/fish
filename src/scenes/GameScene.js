@@ -1,7 +1,7 @@
 import Phaser from "phaser"
 import eventsCenter from "./EventsCenter";
 import gracz from '../objects/Player.js'
-import meta from'../objects/Meta.js'
+import Meta from'../objects/Meta.js'
 
 var timer = true;
 var time = 0.0;
@@ -25,12 +25,39 @@ var txtdistance;
  */
 const createbg = (count, scene, texture, scrollFactro) => {
     let x = 0;
+    let TYPE='';
+    let value;
     for (let i = 0; i < count; ++i) {
-        const m = scene.add.image(x, scene.scale.height, texture)
+        value = Phaser.Math.Between(0, 1);
+        if(value==0)TYPE='a';
+        if(value==1)TYPE='';
+        const m = scene.add.image(x, scene.scale.height, texture+TYPE)
             .setOrigin(0, 1)
             .setScrollFactor(scrollFactro)
-
         x += m.width
+    }
+}
+/**
+ * 
+ * @param {number} count 
+ * @param {Phaser.GameObjects} GameObjects
+ *  @param {Phaser.Scene} scene
+ */
+const createob = (count, GameObjects,scene) => {
+    const width = scene.scale.width
+        const height = scene.scale.height
+    let multi=1;
+    let multi2=0;
+    let value
+    for (let i = 0; i < count; ++i) {
+        value = Phaser.Math.Between(0, 5);
+        // @ts-ignore
+        GameObjects.create(width*multi, 0, 'sG'+value);
+        // @ts-ignore
+        GameObjects.create(width*multi, height, 'sD'+value);
+        multi=multi+0.5-multi2;
+        multi2+=0.005;
+        
     }
 }
 
@@ -63,89 +90,35 @@ export default class GameScene extends Phaser.Scene{
         const width = this.scale.width
         const height = this.scale.height
         this.add.image(0, 0, 'bg').setOrigin(0, 0).setScrollFactor(0);
-        createbg(2,this, 'bg1', 0.25)
-        createbg(4,this, 'bg2', 0.5)
-        createbg(4,this, 'bg3', 0.5)
-        createbg(8,this, 'bg4', 0.9)
-        createbg(8,this, 'bg5', 0.9)
+        createbg(7,this, 'bg1', 0.25)
+        createbg(13,this, 'bg2', 0.5)
+        createbg(13,this, 'bg3', 0.5)
+        createbg(24,this, 'bg4', 0.9)
+        createbg(24,this, 'bg5', 0.9)
+        // Utworzenie przeskud.
         this.platforms = this.physics.add.staticGroup();
-        var multi=1;
-        var value
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
-        multi+=0.5;
-        value = Phaser.Math.Between(0, 5);
-        this.platforms.create(width*multi, 0, 'sG'+value);
-        this.platforms.create(width*multi, height, 'sD'+value);
+        // @ts-ignore
+        createob(65,this.platforms,this)
+     
+        //meta
+        this.finish = new Meta(this);
+        this.finish.setPosition(24 * width-width/6, height/2);
+
         // Utworzenie gracza.
         this.player = new gracz(this);
         this.player.setOrigin(0.65, 0.5);
         this.player.setPosition(width / 2, height / 2);
         this.player.setBounce(0);
-
+        this.player.setSize(width / 25, height / 25)
         this.player.setCollideWorldBounds(true);
+        
+
         // @ts-ignore
-        this.player.body.setBoundsRectangle(new Phaser.Geom.Rectangle(0, 0, 8 * width, height));
+        this.player.body.setBoundsRectangle(new Phaser.Geom.Rectangle(0, 0, 24 * width, height));
         // Uruchomienie śledzenia.
-        this.cameras.main.setBounds(0, 0, 40800, 0);
+        this.cameras.main.setBounds(0, 0, 24 * width, 0);
         this.cameras.main.startFollow(this.player);
         this.cameras.main.followOffset.set(-width/3, 0);
-
-        this.finish = new meta(this);
-        this.finish.setPosition(-2000, 500);
   
         // @ts-ignore
         text = this.add.text(40, 90, 'time: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
@@ -161,16 +134,18 @@ export default class GameScene extends Phaser.Scene{
 
     update() {
         if (this.player.active) this.player.update(this.cursors);
+       
         if (koliz == true) {
             koliz = false
             this.physics.add.overlap(this.player, this.platforms, this.player.hit);
             this.physics.add.overlap(this.player, this.platforms, this.hp);
         }
+        
         if(win==true){
             this.eventYouWon();
         }
-        if(lose==true){
-            this.eventYouLost();
+            if(lose==true){
+                this.eventYouLost();
         }
         if (timer == true) {
             timer = false
@@ -189,20 +164,22 @@ export default class GameScene extends Phaser.Scene{
         text.setText('time: ' + time);
     }
     hp() {
-        eventsCenter.emit('play-Hurt');
-        colision=true;
-        if(hpile==3){
-            image3.destroy()
-            image3 = null
+        if(colision==false){
+            eventsCenter.emit('play-Hurt');
+        if(hpile==1){
+            image.destroy()
+            image = null
+            lose=true;
         }else if(hpile==2){
             image2.destroy()
          image2 = null
         }else{
-            image.destroy()
-            image = null
-            lose=true;
+            image3.destroy()
+            image3 = null
         }
         hpile-=1
+    }
+        colision=true;
         setTimeout(() =>  colision = false, 500)
     }
     koniec(){
@@ -216,16 +193,12 @@ export default class GameScene extends Phaser.Scene{
     }
 
     eventYouWon(){
-        this.scene.launch('youWonScene');
-        eventsCenter.emit('emit-time', time);
-        //eventsCenter.emit('emit-distance', distance);
-        this.scene.stop();
+        this.scene.launch('gameOverScene');
+        this.scene.pause();
     }
 
     eventYouLost(){
-        this.scene.launch('youLostScene');
-        eventsCenter.emit('emit-time', time);
-        //eventsCenter.emit('emit-distance', distance);
+        this.scene.launch('gameOverScene');
         this.scene.pause();
     }
 

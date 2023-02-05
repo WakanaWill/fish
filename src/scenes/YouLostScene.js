@@ -23,9 +23,9 @@ export default class YouLostScene extends Phaser.Scene{
       var yourDistance = 0;
 
 
-      var credits = 'YOU LOST'
+      //var credits = 'YOU LOST'
 
-      this.add.text( width/2, 200, credits,  { fontSize: '30px', fontFamily: "Comic Sans MS" })
+      //this.add.text( width/2, 200, credits,  { fontSize: '30px', fontFamily: "Comic Sans MS" })
 
       const buttonRestart = this.add.image( width/2, height/2, 'buttonRS');
       const buttonMenu = this.add.image( width/2, height/2+190, 'buttonM');

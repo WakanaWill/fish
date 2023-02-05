@@ -7,6 +7,7 @@ import OptionsScene from "./scenes/OptionsScreen";
 import MusicScene from "./scenes/MusicScene";
 import YouLostScene from "./scenes/YouLostScene";
 import YouWonScene from "./scenes/YouWonScene";
+import GameOverScene from "./scenes/GameOverScene";
 
 export default new Phaser.Game({
     type: Phaser.AUTO,
@@ -21,8 +22,9 @@ export default new Phaser.Game({
         arcade: {
             gravity:{
                 y: 0
-            },
+            },//debug: true
         }
+        
     },
     scene: [
         LoadScene,
@@ -33,7 +35,8 @@ export default new Phaser.Game({
         OptionsScene,
         MusicScene,
         YouLostScene,
-        YouWonScene
+        YouWonScene,
+        GameOverScene
     ]
 
 });

@@ -12,5 +12,5 @@ export default {
     stal9:'sD3',
     stal10:'sD4',
     stal11:'sD5', 
-    finish:'meta'  
+    finish:'end'  
 };
