@@ -29,6 +29,19 @@ export default class MenuScene extends Phaser.Scene{
         const buttonStart = this.add.image( width/2, height/2, 'buttonS');
         const buttonOptions = this.add.image( width/2, height/2+190, 'buttonO');
         const buttonCredits = this.add.image( width/2, height/2+190*2, 'buttonC');
+
+        var title = 'FISH\nHOMECOMING'
+
+        this.add.text( width/2+4, height/4.4+4, title,  { fontSize: '130px', fontFamily: "Comic Sans MS", color: '#72b7b7', align: 'center'}).setOrigin(0.5, 0.5);
+        this.add.text( width/2, height/4.4, title,  { fontSize: '130px', fontFamily: "Comic Sans MS", color: '#fff', align: 'center'}).setOrigin(0.5, 0.5);
+
+        var fishL = this.add.image( width/2-300, height/6.5, 'fish');
+        var fishR = this.add.image( width/2+300, height/6.5, 'fish');
+
+        fishL.angle = 15;
+        fishR.angle = -15;
+        fishL.flipX = true;
+
         
 
         const buttons = [
