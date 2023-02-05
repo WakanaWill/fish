@@ -79,13 +79,16 @@ export default class LoadScene extends Phaser.Scene{
     create(){
         const width=this.scale.width
         const height=this.scale.height
+        //this.add.image(0,0,'bg1').setOrigin(0,0);
         const start = this.add.image( width/2, height/2, 'play');
+        
 
         start.setInteractive()
         start.on('pointerover', () => this.eventButtonHoverState(start))
         start.on('pointerout', () => this.eventButtonRestState(start))
 
         start.on('pointerup', () => this.eventPlay() );
+        
 
     }
 
