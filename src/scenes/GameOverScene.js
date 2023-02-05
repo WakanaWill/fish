@@ -13,7 +13,6 @@ export default class GameOverScene extends Phaser.Scene{
     
     preload(){
 
-        
     }
 
     create() {

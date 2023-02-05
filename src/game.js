@@ -5,8 +5,6 @@ import LoadScene from "./scenes/LoadScene";
 import PauseScene from "./scenes/pauseScene";
 import OptionsScene from "./scenes/OptionsScreen";
 import MusicScene from "./scenes/MusicScene";
-import YouLostScene from "./scenes/YouLostScene";
-import YouWonScene from "./scenes/YouWonScene";
 import GameOverScene from "./scenes/GameOverScene";
 
 export default new Phaser.Game({
@@ -34,8 +32,6 @@ export default new Phaser.Game({
         PauseScene,
         OptionsScene,
         MusicScene,
-        YouLostScene,
-        YouWonScene,
         GameOverScene
     ]
 
