@@ -1,8 +1,6 @@
 import Phaser from "phaser"
 import eventsCenter from "./EventsCenter";
 
-var yourTime;
-var yourDistance;
 
 export default class GameOverScene extends Phaser.Scene{
 
