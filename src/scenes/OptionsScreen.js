@@ -34,8 +34,8 @@ export default class OptionsScene extends Phaser.Scene{
         const buttonMinus = this.add.image( width/2.6, height/2, 'minus');
         var volumeIcon = this.physics.add.sprite( width/2, height/2, 'volume', 4);
 
-        this.add.text( width/3.5+4, height/3.3+4, 'Music volume',  { fontSize: '60px', fontFamily: "Comic Sans MS", color: '#72b7b7'});
-        this.add.text( width/3.5, height/3.3, 'Music volume',  { fontSize: '60px', fontFamily: "Comic Sans MS" });
+        this.add.text( width/3.5, height/3.3, 'Music volume',  { fontSize: '60px', fontFamily: "Comic Sans MS" }).setShadow(3,3,'#72b7b7');
+        //musicVol
 
         this.anims.create({
           key: '0',

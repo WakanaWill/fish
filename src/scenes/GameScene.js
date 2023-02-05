@@ -16,6 +16,13 @@ var colision;
 var lose=false;
 var distance=0;
 var txtdistance;
+var text2;
+var txtdistance2;
+var txtwin;
+var txtlose; 
+var endGameTint;
+var textUnderWon;
+var textUnderLose;
 /**
  * 
  * @param {number} count 
@@ -119,15 +126,35 @@ export default class GameScene extends Phaser.Scene{
         this.cameras.main.setBounds(0, 0, 24 * width, 0);
         this.cameras.main.startFollow(this.player);
         this.cameras.main.followOffset.set(-width/3, 0);
-  
-        // @ts-ignore
-        text = this.add.text(40, 90, 'time: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
-        // @ts-ignore
-        txtdistance = this.add.text(40, 30, 'distance: 0', { fontSize: 46, fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0);
 
         image = this.add.image(40, height - 100, 'serce').setOrigin(0, 0).setScrollFactor(0);
         image2 = this.add.image(75+60, height - 100, 'serce').setOrigin(0, 0).setScrollFactor(0);
         image3 = this.add.image(150+80, height - 100, 'serce').setOrigin(0, 0).setScrollFactor(0);
+
+        endGameTint = this.add.image(0,0,'bgTint').setOrigin(0,0).setScrollFactor(0);
+        endGameTint.visible = false;
+        
+         //texts and timers
+         text = this.add.text(40, 90, 'time: 0', { fontSize: '46px', fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0).setShadow(2,2,'#72b7b7');
+         txtdistance = this.add.text(40, 30, 'distance: 0', { fontSize: '46px', fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0).setShadow(2,2,'#72b7b7');
+         text2 = this.add.text(width/2, height/2.5+height/18, 'time: 0', { fontSize: '52px', fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0).setOrigin(0.5, 0.5).setShadow(3,3,'#72b7b7');
+         txtdistance2 = this.add.text(width/2, height/2.5, 'distance: 0', { fontSize: '52px', fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0).setOrigin(0.5, 0.5).setShadow(3,3,'#72b7b7');
+         txtwin = this.add.text(width/2, height/5-20, 'YOU WIN', { fontSize: '100px', fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0).setOrigin(0.5, 0.5).setShadow(4,4,'#72b7b7');
+         textUnderWon = this.add.text(width/2, height/5+60, 'your kids are happy to see you :D', { fontSize: '36px', fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0).setOrigin(0.5, 0.5).setShadow(2,2,'#72b7b7');
+         txtlose = this.add.text(width/2, height/5-20, 'YOU LOST', { fontSize: '100px', fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0).setOrigin(0.5, 0.5).setShadow(4,4,'#72b7b7');
+         textUnderLose = this.add.text(width/2, height/5+60, 'your kids miss you', { fontSize: '36px', fontFamily: "Comic Sans MS", color: '#fff'}).setScrollFactor(0).setOrigin(0.5, 0.5).setShadow(2,2,'#72b7b7');
+         
+         text.visible = true;
+         txtdistance.visible = true;
+         text2.visible = false;
+         txtdistance2.visible = false;
+         txtwin.visible = false;
+         textUnderWon.visible = false;
+         txtlose.visible = false;
+         textUnderLose.visible = false;
+
+         
+
 
         this.input.keyboard.on('keydown-L', () => this.eventYouLost() );
     }
@@ -157,11 +184,13 @@ export default class GameScene extends Phaser.Scene{
         const width = this.scale.width
         distance=Math.round((this.player.x-(width / 2))/(width/11))
         txtdistance.setText('distance: ' + distance);
+        txtdistance2.setText('distance: ' + distance);
     }
     onEvent() {
         timer = true
         time += 1
         text.setText('time: ' + time);
+        text2.setText('time: ' + time);
     }
     hp() {
         if(colision==false){
@@ -193,11 +222,34 @@ export default class GameScene extends Phaser.Scene{
     }
 
     eventYouWon(){
+        for(;hpile>0;hpile--){
+        if(hpile==1){
+            image.destroy()
+            image = null
+        }else if(hpile==2){
+            image2.destroy()
+         image2 = null
+        }else{
+            image3.destroy()
+            image3 = null
+        }}
+        text.visible = false;
+        txtdistance.visible = false;
+        text2.visible=true;
+        txtwin.visible=true;
+        textUnderWon.visible = true;
         this.scene.launch('gameOverScene');
         this.scene.pause();
     }
 
     eventYouLost(){
+        endGameTint.visible = true;
+        text.visible = false;
+        txtdistance.visible = false;
+        text2.visible=true;
+        txtdistance2.visible=true;
+        txtlose.visible=true;
+        textUnderLose.visible = true;
         this.scene.launch('gameOverScene');
         this.scene.pause();
     }

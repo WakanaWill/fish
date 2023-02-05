@@ -32,8 +32,8 @@ export default class MenuScene extends Phaser.Scene{
 
         var title = 'FISH\nHOMECOMING'
 
-        this.add.text( width/2+4, height/4.4+4, title,  { fontSize: '130px', fontFamily: "Comic Sans MS", color: '#72b7b7', align: 'center'}).setOrigin(0.5, 0.5);
-        this.add.text( width/2, height/4.4, title,  { fontSize: '130px', fontFamily: "Comic Sans MS", color: '#fff', align: 'center'}).setOrigin(0.5, 0.5);
+        //this.add.text( width/2+4, height/4.4+4, title,  { fontSize: '130px', fontFamily: "Comic Sans MS", color: '#72b7b7', align: 'center'}).setOrigin(0.5, 0.5);
+        this.add.text( width/2, height/4.4, title,  { fontSize: '130px', fontFamily: "Comic Sans MS", color: '#fff', align: 'center'}).setOrigin(0.5, 0.5).setShadow(4,4,'#72b7b7');;
 
         var fishL = this.add.image( width/2-300, height/6.5, 'fish');
         var fishR = this.add.image( width/2+300, height/6.5, 'fish');

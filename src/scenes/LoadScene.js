@@ -36,6 +36,7 @@ export default class LoadScene extends Phaser.Scene{
         this.load.image('sD5', '/images/stal1.png');
 
 
+
         this.load.image('end', '/images/end.png');  
         this.load.image('end1', '/images/end1.png');
         this.load.image('end2', '/images/end2.png');
