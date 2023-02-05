@@ -153,10 +153,7 @@ export default class GameScene extends Phaser.Scene{
          txtlose.visible = false;
          textUnderLose.visible = false;
 
-         
 
-
-        this.input.keyboard.on('keydown-L', () => this.eventYouLost() );
     }
 
     update() {

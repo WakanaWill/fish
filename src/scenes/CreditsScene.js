@@ -39,7 +39,6 @@ export default class CreditsScene extends Phaser.Scene{
 
         var credits = 'code: Łukasz Para,\n         Magdalena Sładczyk,\n         Bartosz Piwowarczyk\n\nart:   Magdalena Sładczyk\n\nbg music by ItsWatR from Pixabay\nbubble sound by Ranner from Pixabay\nhit sound by worthahep88 from freesound'
 
-        //this.add.text( width/8+2, height/7+2, credits,  { fontSize: '50px', fontFamily: "Comic Sans MS", color: '#72b7b7'})
         this.add.text( width/8, height/7, credits,  { fontSize: '50px', fontFamily: "Comic Sans MS" }).setShadow(2,2,'#72b7b7');
 
         const buttonBack = this.add.image(  width/9.8, height/1.1, 'buttonB').setName('buttonBack');
