@@ -68,7 +68,7 @@ export default class LoadScene extends Phaser.Scene{
         this.load.audio('bubble', '/sound/bubbleSound.mp3')
         this.load.audio('hurt', '/sound/hit.mp3')
 
-        this.load.spritesheet('volume', 'images/volumeLevels.png', { frameWidth: 206, frameHeight: 164});
+        this.load.spritesheet('volume', '/images/volumeLevels.png', { frameWidth: 206, frameHeight: 164});
         this.load.image('plus', '/images/buttonPlus.png');
         this.load.image('minus', '/images/buttonMinus.png')
  
